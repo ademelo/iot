@@ -27,7 +27,7 @@ setSyncInterval(1);*/
 //const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
 //byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
 
-//time_t getNtpTime() {
+time_t getNtpTime() {
 /*  IPAddress ntpServerIP; // NTP server's ip address
 
   while (Udp.parsePacket() > 0) ; // discard any previously received packets
@@ -54,8 +54,8 @@ setSyncInterval(1);*/
     }
   }
   Serial.println("No NTP Response :-(");*/
-//  return 0; // return 0 if unable to get the time
-//}
+  return 0; // return 0 if unable to get the time
+}
 
 // send an NTP request to the time server at the given address
 //void sendNTPpacket(IPAddress &address) {
