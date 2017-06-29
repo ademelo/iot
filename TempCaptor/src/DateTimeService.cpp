@@ -54,7 +54,7 @@ setSyncInterval(1);*/
     }
   }
   Serial.println("No NTP Response :-(");*/
-//  return 0; // return 0 if unable to get the time
+  //return 0; // return 0 if unable to get the time
 //}
 
 // send an NTP request to the time server at the given address

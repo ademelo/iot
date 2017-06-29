@@ -23,7 +23,7 @@
 #endif
 
 // NTP Servers:
-static const char ntpServerName[] = "us.pool.ntp.org";//"0.fr.pool.ntp.org";
+static const char ntpServerName[] = "fr.pool.ntp.org";//"us.pool.ntp.org";//"0.fr.pool.ntp.org";
 const int timeZone = 2;
 WiFiUDP Udp;
 unsigned int localPort = 8888; // local port to listen for UDP packets
@@ -90,8 +90,8 @@ OneWire oneWire(ONE_WIRE_BUS); //Bus One Wire sur la pin 2 de l'arduino
 DallasTemperature sensors(&oneWire); //Utilistion du bus Onewire pour les capteurs
 DeviceAddress sensorDeviceAddress; //Vérifie la compatibilité des capteurs avec la librairie
 
-const char* ssid = "NETGEAR-IOT";//"Bbox-45A7D94D";
-const char* password = "PocIot2017!";//"341E1A2D234272C6527426A441D4CF";
+const char* ssid = "NETGEAR-IOT";//"G5_5710";//"Bbox-45A7D94D";
+const char* password = "PocIot2017!";//"spleenlex0879";//"341E1A2D234272C6527426A441D4CF";
 
 int ledPin = 13; // GPIO13
 WiFiServer server(80);
@@ -103,8 +103,6 @@ void setup(void) {
   u8g2.begin();
 
   Serial.begin(115200);
-  // Wait a few seconds between measurements.
-  delay(1);
 
   sensors.begin(); //Activation des capteurs
   sensors.getAddress(sensorDeviceAddress, 0); //Demande l'adresse du capteur à l'index 0 du bus
@@ -248,7 +246,7 @@ void loop(void) {
   sprintf(concatstr, "%s%s", result, unity);
   printMessage(concatstr);
 
-  //delay(1);
+  delay(5000);
 
   /*==========================================================
                       Début MQTT
@@ -340,7 +338,7 @@ void blink(int times) {
 void publishTemperature(float temperature) {
 
   char temperatureString[6];
-  char temperatureTimeSerieString[255];
+  char temperatureTimeSerieString[255] = "";
 
   // convert temperature to a string with two digits before the comma and 2 digits for precision
   dtostrf(temperature, 2, 2, temperatureString);
@@ -358,6 +356,7 @@ void publishTemperature(float temperature) {
   strcat(temperatureTimeSerieString,"temperature,");
   strcat(temperatureTimeSerieString, temperatureString);
   strcat(temperatureTimeSerieString,",");
+  Serial.print(temperatureTimeSerieString);
   //strcat(temperatureTimeSerieString, MAC_address);
     // TODO : build the JSON data for poc DN (see picture)
 
