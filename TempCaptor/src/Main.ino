@@ -39,9 +39,9 @@ void sendNTPpacket(IPAddress &address);
 #define XIVELY_BROKER             "broker.xively.com"
 #define XIVELY_BROKER_PORT        443
 // Enter your Xively credentials and topic
-#define ACCOUNT_ID                "5b1607f6-bd17-4043-a079-42b03a7c9358"
-#define XIVELY_DEVICE_ID          "ecdd9340-67bf-4b30-af7e-7181839fae6e"
-#define XIVELY_DEVICE_CREDENTIALS "fermdBnUlkvfSp0UpKOIq+FLhiqC245eC2sekfIUZoY="
+#define ACCOUNT_ID                ""
+#define XIVELY_DEVICE_ID          ""
+#define XIVELY_DEVICE_CREDENTIALS ""
 
 #define ROOT_TOPIC                "xi/blue/v1/"
 #define ROOT_ACCOUNT_TOPIC        ROOT_TOPIC ACCOUNT_ID
